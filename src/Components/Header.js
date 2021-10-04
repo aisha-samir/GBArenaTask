@@ -3,7 +3,6 @@ import { Text, TextInput, View, StyleSheet, TouchableOpacity, Image } from 'reac
 import { calcHeight, calcWidth } from '../Config/Dimension'
 import AppStyles from '../Config/styles'
 import Icon from 'react-native-vector-icons/Entypo';
-import { setAppLanguage, strings, getAppLanguage } from '../Config/language/localLanguagesController'
 
 
 
@@ -16,7 +15,7 @@ const Header = ({ navigation, Title, back }) => {
             flexDirection: "row", justifyContent: back ? "space-between" : "center", alignItems: "center",
         }}>
             {back && <TouchableOpacity onPress={() => { navigation.goBack() }}>
-                <Icon name={getAppLanguage() == 'en' ? 'chevron-left' : 'chevron-right'} size={40} color={AppStyles.Color.DARK_THEM}
+                <Icon name={'chevron-left'} size={40} color={AppStyles.Color.DARK_THEM}
 
                 />
 

@@ -3,10 +3,7 @@ import { Text, TextInput, View, StyleSheet, TouchableOpacity, Image } from 'reac
 import { calcHeight, calcWidth } from '../Config/Dimension'
 import AppStyles from '../Config/styles'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { setAppLanguage, strings, getAppLanguage } from '../Config/language/localLanguagesController'
-import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
-//import { clearError } from '../Integration/actions/Actions'
 import { clearErrors } from '../Integration/api/ApisFunctions'
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -43,7 +40,7 @@ export const Error = (props) => {
                     onPress={() => clear()}
                     style={styles.touchable}>
                     <Text style={styles.touchableText}>
-                        {strings("done")}
+                        Done
                     </Text>
                 </TouchableOpacity>
 

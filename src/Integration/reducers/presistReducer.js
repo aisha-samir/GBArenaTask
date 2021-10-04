@@ -14,7 +14,7 @@ export const presistReducer = createReducer(initialState, {
       ...state,
       data: {
         ...state.data,
-        [action.reducerVariable]: action.payload.response.data,
+        [action.reducerVariable]: action.payload,
       }
     };
   },

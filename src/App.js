@@ -28,6 +28,12 @@ function App() {
             />
 
             <Stack.Screen
+              name="AllMovies"
+              component={AllMovies}
+            />
+
+
+            <Stack.Screen
               name="TobTabNavigation"
               component={TobTabNavigation}
             />
@@ -36,12 +42,6 @@ function App() {
             <Stack.Screen
               name="AddMoive"
               component={AddMoive}
-            />
-
-
-            <Stack.Screen
-              name="AllMovies"
-              component={AllMovies}
             />
 
 

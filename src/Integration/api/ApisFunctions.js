@@ -56,12 +56,19 @@ export const GetAllMovies = (data, page) => {
       err => {
         console.log(colors.bg.Red + 'Unable to fetch data from GetAllMovies API !', err);
         dispatch(disableLoader("GetAllMovies"))
+        dispatch(saveError("GetAllMovies", "an error occurred"))
       },
     );
   }
 };
 
 
+export const AddNewMoive = (movie) => {
+
+  return async dispatch => {
+    dispatch(saveResponsePresist(movie, "MyMovies"))
+  }
+};
 
 export const clearErrors = () => {
   return async dispatch => {

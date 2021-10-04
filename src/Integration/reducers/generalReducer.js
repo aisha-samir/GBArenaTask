@@ -23,7 +23,6 @@ export const generalReducer = createReducer(initialState, {
   },
 
   ['SAVE_GENERAL_REDUCER'](state, action) {
-    console.log("============>", action)
     return {
       ...state,
       data: {
