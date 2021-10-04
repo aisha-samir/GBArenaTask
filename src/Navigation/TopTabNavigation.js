@@ -19,7 +19,9 @@ export default function TobTabNavigation({ navigation, route }) {
         { key: 'MyMovies', title: 'My Movies' },
 
     ]);
-
+    React.useEffect(() => {
+        console.log("----------------------->", navigation)
+    }, [])
     const renderScene = SceneMap({
         AllMovies: AllMovies,
         MyMovies: MyMovies,

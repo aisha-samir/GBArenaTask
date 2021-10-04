@@ -9,7 +9,7 @@ import {
   saveError,
   clearError
 } from '../actions/Actions';
-import AsyncStorage from '@react-native-community/async-storage'
+
 
 const colors = {
   bg: {
@@ -44,15 +44,7 @@ export const GetAllMovies = (data, page) => {
           console.log(colors.bg.Green + 'GetDataFrom GetAllMovies API !', response.data)
           if (temp.length != 0) {
             let combinedArray = temp.concat(response.data.results)
-            console.log("data in search order after===>", combinedArray)
-            let newResonse = {
-              response: {
-                data: combinedArray
-
-              }
-            }
-            dispatch(saveResponseGeneral(newResonse, "SearchOrder"));
-
+            dispatch(saveResponseGeneral(combinedArray, "GetAllMovies"));
           }
           else {
             dispatch(saveResponseGeneral(response.data.results, "GetAllMovies"));
