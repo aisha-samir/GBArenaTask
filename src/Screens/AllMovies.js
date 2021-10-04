@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     imageView: {
         height: calcHeight(130),
         width: "100%",
-        backgroundColor: "green",
+        backgroundColor: AppStyles.Color.LIGHT_GRAY,
         justifyContent: "center",
         alignItems: "center"
     },

@@ -63,11 +63,19 @@ export const GetAllMovies = (data, page) => {
 };
 
 
-export const AddNewMoive = (movie) => {
-
+export const AddNewMoive = (movie, navigation) => {
+  // if (movie.title != "" || movie.overview != "") {
   return async dispatch => {
     dispatch(saveResponsePresist(movie, "MyMovies"))
+    navigation.replace("Home")
   }
+  // }
+  // else {
+  //   return async dispatch => {
+  //     dispatch(saveError("AddNewMoive", "Please fill all fields"))
+  //   }
+  // }
+
 };
 
 export const clearErrors = () => {

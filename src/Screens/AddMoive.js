@@ -13,7 +13,10 @@ import ImageResizer from 'react-native-image-resizer';
 import ImagePicker from 'react-native-image-crop-picker';
 import Modal from 'react-native-modal';
 import { AddNewMoive } from '../Integration/api/ApisFunctions';
-
+import { Error } from '../Components/Erorr';
+import {
+    saveError,
+} from '../Integration/actions/Actions';
 var RNFS = require('react-native-fs');
 
 const options = {
@@ -155,18 +158,24 @@ const AddMoive = ({ navigation }) => {
     }
 
     const addMovie = () => {
-        let temp = []
-        if (presistState.data.MyMovies) {
-            temp = [...presistState.data.MyMovies]
+
+        if (title != "" && overview != "") {
+
+            let temp = []
+            if (presistState.data.MyMovies) {
+                temp = [...presistState.data.MyMovies]
+            }
+            let data = {
+                title: title,
+                overview: overview,
+                image: image
+            }
+            temp.unshift(data)
+            dispatch(AddNewMoive(temp, navigation))
         }
-        let data = {
-            title: title,
-            overview: overview,
-            image: image
+        else {
+            dispatch(saveError("AddNewMoive", "please fill all required fields"))
         }
-        temp.push(data)
-        dispatch(AddNewMoive(temp))
-        navigation.navigate("TobTabNavigation")
     }
 
     return (
@@ -174,6 +183,7 @@ const AddMoive = ({ navigation }) => {
             <Header Title={"Add Moive"} navigation={navigation} back />
             <ScrollView style={{ backgroundColor: '#fff', height: "100%", width: "100%", }}
                 showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 50, alignItems: "center" }}>
+                {generalState.Errors.AddNewMoive && <Error error={generalState.Errors.AddNewMoive} />}
 
                 <View style={{ marginTop: calcHeight(50), width: "100%", alignItems: "center" }}>
                     <TextInput

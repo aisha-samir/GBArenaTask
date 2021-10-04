@@ -30,8 +30,9 @@ const MyMovies = ({ navigation }) => {
                     renderItem={({ item, index }) => {
                         return (
                             <View style={styles.card}>
-                                <View style={styles.image}>
-                                    {item.image ?
+
+                                <View style={styles.imageView}>
+                                    {item.image != null ?
                                         <Image
                                             source={{ uri: `data:image/gif;base64,${item.image}` }}
                                             style={{ height: "100%", width: "100%" }}
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
     imageView: {
         height: calcHeight(130),
         width: "100%",
-        backgroundColor: "green",
         justifyContent: "center",
         alignItems: "center"
     },
